@@ -1,0 +1,634 @@
+{
+  "intents": [
+    {
+      "intent": "Calendar",
+      "examples": [
+        {
+          "text": "show me my assignments"
+        },
+        {
+          "text": "show me my calendar"
+        },
+        {
+          "text": "show me my homework that is due"
+        },
+        {
+          "text": "show me my projects"
+        },
+        {
+          "text": "view tasks"
+        },
+        {
+          "text": "what are my assignments"
+        },
+        {
+          "text": "what are my tasks"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Goodbyes",
+      "examples": [
+        {
+          "text": "Bye"
+        },
+        {
+          "text": "c ya"
+        },
+        {
+          "text": "Goodbye"
+        },
+        {
+          "text": "nope. nothing much!"
+        },
+        {
+          "text": "see you"
+        },
+        {
+          "text": "talk soon"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Greetings",
+      "examples": [
+        {
+          "text": "Good Evening"
+        },
+        {
+          "text": "Good Morning"
+        },
+        {
+          "text": "Hello"
+        },
+        {
+          "text": "Hi"
+        },
+        {
+          "text": "what's up"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Schedule_assignment",
+      "examples": [
+        {
+          "text": "add assignment"
+        },
+        {
+          "text": "add reminder"
+        },
+        {
+          "text": "add task"
+        },
+        {
+          "text": "set schedule"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Thank_You",
+      "examples": [
+        {
+          "text": "cheers"
+        },
+        {
+          "text": "thanks"
+        },
+        {
+          "text": "thank you"
+        },
+        {
+          "text": "thx"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Tips",
+      "examples": [
+        {
+          "text": "can you help me manage tasks"
+        },
+        {
+          "text": "how to add a new task"
+        },
+        {
+          "text": "how to manage my time"
+        },
+        {
+          "text": "I can not finish on time"
+        },
+        {
+          "text": "I need help"
+        },
+        {
+          "text": "show me how to create my to do list"
+        },
+        {
+          "text": "show me tips"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "Subjects",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Math",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Mathematics",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Reading",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Science",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Social Studies",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Writing",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-date",
+      "values": [],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-time",
+      "values": [],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    },
+    "from-sample": true
+  },
+  "webhooks": [
+    {
+      "url": "https://sites.google.com/u/0/d/1b2Yvr_ZE-n7LzfCZsZ6zeHFW2raIGClH/p/1oJDprM0afRQ9qeO7MZAsUxCKtsPB898l/preview?authuser=0",
+      "name": "main_webhook",
+      "headers": [
+        {
+          "name": "Calendar",
+          "value": ""
+        }
+      ]
+    }
+  ],
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_9_1605734475892",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": []
+      },
+      "parent": "node_8_1605843642142",
+      "event_name": "focus",
+      "dialog_node": "handler_1_1605902654245"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "What subject is this assignment for?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_6_1605846500590",
+      "event_name": "focus",
+      "dialog_node": "handler_2_1605846500590",
+      "previous_sibling": "handler_8_1605846500590"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "At what time is this assignment due?(for example 3:00pm)"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_8_1605847551410",
+      "event_name": "focus",
+      "dialog_node": "handler_4_1605847551415",
+      "previous_sibling": "handler_5_1605847551415"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_8_1605847551410",
+      "context": {
+        "time": "@sys-time"
+      },
+      "conditions": "@sys-time",
+      "event_name": "input",
+      "dialog_node": "handler_5_1605847551415"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "What date is this assignment due?(MM/DD/YY) "
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_4_1605847541288",
+      "event_name": "focus",
+      "dialog_node": "handler_6_1605847541288",
+      "previous_sibling": "handler_8_1605847541288"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_6_1605846500590",
+      "context": {
+        "Subjects": "@Subjects"
+      },
+      "conditions": "@Subjects",
+      "event_name": "input",
+      "dialog_node": "handler_8_1605846500590"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_4_1605847541288",
+      "context": {
+        "date": "@sys-date"
+      },
+      "conditions": "@sys-date",
+      "event_name": "input",
+      "dialog_node": "handler_8_1605847541288"
+    },
+    {
+      "type": "standard",
+      "title": "Goodbyes",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Nice talking to you today $name. Stay safe, remember to wear your mask and practice social distancing!"
+              },
+              {
+                "text": "Have a nice day $name. Stay safe, remember to wear your mask and practice social distancing!"
+              },
+              {
+                "text": "Nice talking to you today $name. Stay safe, remember to wear your mask and practice social distancing!"
+              },
+              {
+                "text": "Bye $name. Stay safe, remember to wear your mask and practice social distancing!"
+              },
+              {
+                "text": "\n"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "source": "https://media.tenor.com/images/0824655cd78be4e48cc850cc28d84ea5/tenor.gif",
+            "response_type": "image"
+          }
+        ]
+      },
+      "parent": "node_9_1605734475892",
+      "conditions": "#Goodbyes",
+      "dialog_node": "node_10_1605735730789",
+      "previous_sibling": "node_3_1605735627739"
+    },
+    {
+      "type": "standard",
+      "title": "Thank You",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "You're welcome. Please let me know if you need anything else."
+              },
+              {
+                "text": "My pleasure."
+              },
+              {
+                "text": "No problem. Let me know if there is anything else I can help with."
+              },
+              {
+                "text": "I aim to please. 😊"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1605734475892",
+      "conditions": "#Thank_You",
+      "dialog_node": "node_3_1605735627739",
+      "previous_sibling": "node_8_1605735478791"
+    },
+    {
+      "type": "standard",
+      "title": " Collect Name",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Welcome to the crew $name. How can I help you today? You can ask me to show you your calendar, walk you through adding an assignment, or provide you with tips on how to manage your time during distance learning. "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "Welcome",
+      "context": {
+        "name": "<? input.text.substring(0, 1).toUpperCase() + input.text.substring(1) ?>"
+      },
+      "metadata": {
+        "_customization": {
+          "mcr": false
+        }
+      },
+      "conditions": "true",
+      "dialog_node": "node_4_1605736599278"
+    },
+    {
+      "type": "standard",
+      "title": "Tips",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Need some help? The crewmates are here for you! Select the Tips tab above or click on the link below to find a list of tips and resources we think might help : <a href=\"https://sites.google.com/view/astrotask/tips?authuser=/0\">our tips page</a>."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "source": "https://i.imgur.com/JPwXKHW.gif?noredirect",
+            "response_type": "image"
+          }
+        ]
+      },
+      "conditions": "#Tips",
+      "dialog_node": "node_4_1605820142580",
+      "previous_sibling": "node_8_1605819615374"
+    },
+    {
+      "type": "standard",
+      "title": " Greetings",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hi there. How can I help you?"
+              },
+              {
+                "text": "Hello. How may I assist you today?"
+              },
+              {
+                "text": "Hi. What can I help you with?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1605734475892",
+      "conditions": "#Greetings",
+      "dialog_node": "node_8_1605735478791"
+    },
+    {
+      "type": "standard",
+      "title": "Calendar",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "The crewmates have updated your tasks! Click on the Calendar option shown in the menu above or click this link to view your calendar:  <a href=\"https://sites.google.com/view/astrotask/calender?authuser=/0\">your calender page</a>."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "source": "https://amazfitwatchfaces.com/storage/mi-band-4/img/1603223629_c04342f965.gif",
+            "response_type": "image"
+          }
+        ]
+      },
+      "metadata": {
+        "_customization": {
+          "mcr": false
+        }
+      },
+      "conditions": "#Calendar",
+      "dialog_node": "node_8_1605819615374",
+      "previous_sibling": "node_8_1605843642142"
+    },
+    {
+      "type": "frame",
+      "title": "Schedule",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "You are all set. Your $Subjects assignment reminder is added for $date at $time. Let me know if you need help with anything else.\n"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "source": "https://media1.tenor.com/images/98903ddc119a5a5d5e3e9d44f13339eb/tenor.gif?itemid=18753904",
+            "response_type": "image"
+          }
+        ]
+      },
+      "conditions": "#Schedule_assignment",
+      "dialog_node": "node_8_1605843642142",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "folder",
+      "title": "Chitchat",
+      "dialog_node": "node_9_1605734475892",
+      "previous_sibling": "node_4_1605820142580"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Click on the Calendar shown in the menu above or click this link to view your calendar: "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_8_1605819615374",
+      "disabled": true,
+      "conditions": "$webhook_result_1",
+      "dialog_node": "response_1_1605911176653"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "text": {
+          "values": [
+            "Is there anything I can help you with?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_8_1605819615374",
+      "disabled": true,
+      "conditions": "anything_else",
+      "dialog_node": "response_3_1605911178681",
+      "previous_sibling": "response_1_1605911176653"
+    },
+    {
+      "type": "slot",
+      "parent": "node_8_1605843642142",
+      "variable": "$date",
+      "dialog_node": "slot_4_1605847541288",
+      "previous_sibling": "slot_6_1605846500590"
+    },
+    {
+      "type": "slot",
+      "parent": "node_8_1605843642142",
+      "variable": "$Subjects",
+      "dialog_node": "slot_6_1605846500590",
+      "previous_sibling": "handler_1_1605902654245"
+    },
+    {
+      "type": "slot",
+      "parent": "node_8_1605843642142",
+      "variable": "$time",
+      "dialog_node": "slot_8_1605847551410",
+      "previous_sibling": "slot_4_1605847541288"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello, my name is Cyan. I am a chatbot. What name may I call you by?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "source": "https://media.tenor.com/images/fb49a3cf50d3d4fd65ea491e05ceff0b/tenor.gif",
+            "response_type": "image"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "system_entities": {
+      "enabled": true
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "intent_classification": {
+      "training_backend_version": "v2"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "My first skill",
+  "language": "en",
+  "description": ""
+}
