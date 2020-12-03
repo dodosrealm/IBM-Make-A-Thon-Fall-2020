@@ -12,7 +12,7 @@ Zoom | Google Docs| Whatsapp | Google Sites| IBM Watson AI | OBS
 One of the major challenges we faced was displaying the information collected from the chat bot on googles calendar.
 
 # Our Future:
-Display user's calendar with tasks and assignment added using Watson AI Chatbot.
+-Display user's calendar with tasks and assignment added using Watson AI Chatbot.
 -Utilize IBM Cloud technology to store the users information.  
 -Create ranking so as to boost motivation amongst users.
 -Allocate awards for meeting assignment deadlines and penalties for missed assignments.
