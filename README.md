@@ -23,3 +23,8 @@ One of the major challenges we faced was displaying the information collected fr
 -The teammates have learned how to utilize google sites.
 -As a result of this project, we have also learned how to work as a team to accomplish a common goal.
 
+# Website: 
+https://sites.google.com/view/astrotask/chat-bot?authuser=0
+
+# Pitch Video:
+https://www.youtube.com/watch?v=hwb8fW2SPpc
